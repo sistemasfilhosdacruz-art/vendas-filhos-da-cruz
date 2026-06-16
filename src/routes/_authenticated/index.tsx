@@ -132,12 +132,10 @@ function Home() {
               </Button>
             </>
           )}
-        </div>
-
-        <p className="mt-10 text-center text-xs text-muted-foreground/80">
-          "Aquele que beber da água que eu darei,<br />nunca mais terá sede." — Jo 4,14
-        </p>
-      </div>
+       <div className="text-center text-sm text-muted-foreground max-w-md mx-auto space-y-2 italic">
+  <p>“Como mártires, exalar no<br />mundo o perfume de Cristo”</p>
+  <p className="text-xs not-italic">Um Filho da Cruz é chamado a, com amor apaixonado, fazer-se tudo para todos a exemplo D’aquele que nos amou primeiro.</p>
+</div>
 
       <Dialog open={novoOpen} onOpenChange={setNovoOpen}>
         <DialogContent>
