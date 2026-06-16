@@ -132,10 +132,13 @@ function Home() {
               </Button>
             </>
           )}
-       <div className="text-center text-sm text-muted-foreground max-w-md mx-auto space-y-2 italic">
-  <p>“Como mártires, exalar no<br />mundo o perfume de Cristo”</p>
-  <p className="text-xs not-italic">Um Filho da Cruz é chamado a, com amor apaixonado, fazer-se tudo para todos a exemplo D’aquele que nos amou primeiro.</p>
-</div>
+        </div>
+
+        <div className="mt-8 text-center text-sm text-muted-foreground max-w-md mx-auto space-y-2 italic">
+          <p>“Como mártires, exalar no<br />mundo o perfume de Cristo”</p>
+          <p className="text-xs not-italic">Um Filho da Cruz é chamado a, com amor apaixonado, fazer-se tudo para todos a exemplo D’aquele que nos amou primeiro.</p>
+        </div>
+      </div>
 
       <Dialog open={novoOpen} onOpenChange={setNovoOpen}>
         <DialogContent>
