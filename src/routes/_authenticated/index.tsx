@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import logoAsset from "@/assets/logo-manancial.png.asset.json";
+import logoAsset from "@/assets/Logo com nome 1600x400px .png.asset.json";
 import { useStore } from "@/lib/store";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -89,7 +89,7 @@ function Home() {
         <div className="text-center mt-4">
           <div className="relative mx-auto mb-5 grid h-32 w-32 place-items-center">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 via-accent/15 to-secondary/20 blur-2xl" />
-            <img src={logoAsset.url} alt="Manancial" className="relative h-32 w-32 object-contain drop-shadow-[0_8px_24px_rgba(46,90,106,0.25)]" />
+            <img src={logoAsset.url} alt="Loja FDC" className="relative h-32 w-32 object-contain drop-shadow-[0_8px_24px_rgba(46,90,106,0.25)]" />
           </div>
           <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Loja FDC</p>
           <h1 className="mt-2 text-3xl font-bold sm:text-4xl">Escolha o retiro</h1>

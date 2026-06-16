@@ -43,7 +43,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-30 border-b border-border bg-card/80 backdrop-blur supports-[backdrop-filter]:bg-card/70">
         <div className="mx-auto max-w-5xl px-4 py-3 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
           <Link to="/" className="flex min-w-0 items-center gap-3">
-            <img src="/logo-manancial.png" alt="Manancial" className="h-10 w-10 shrink-0 rounded-full object-contain ring-1 ring-border bg-white" />
+            <img src="/Logo com nome 1600x400px .png" alt="Loja FDC" className="h-10 w-10 shrink-0 rounded-full object-contain ring-1 ring-border bg-white" />
             <div className="min-w-0">
               <p className="text-[11px] uppercase tracking-wider text-muted-foreground leading-none">Loja FDC</p>
               <h1 className="truncate text-base font-bold sm:text-lg" suppressHydrationWarning>{retiroAtual?.nome ?? "—"}</h1>
