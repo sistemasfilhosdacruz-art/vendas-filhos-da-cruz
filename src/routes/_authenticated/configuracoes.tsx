@@ -23,7 +23,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/_authenticated/configuracoes")({
-  head: () => ({ meta: [{ title: "Configurações — Cantinho Mariano" }] }),
+  head: () => ({ meta: [{ title: "Configurações — Loja FDC" }] }),
   component: ConfiguracoesPage,
 });
 
@@ -189,7 +189,7 @@ function ConfiguracoesInner() {
     if (!retiro_id) return toast.error("Nenhum retiro selecionado!");
     setLoading(true);
     const rows = [
-      { retiro_id, nome: "Café 200ml", valor: 4, fornecedor: "Cantinho Mariano" },
+      { retiro_id, nome: "Café 200ml", valor: 4, fornecedor: "Loja FDC" },
       { retiro_id, nome: "Pão de Queijo", valor: 5, fornecedor: "Padaria São Bento" },
       { retiro_id, nome: "Imagem Nossa Sra.", valor: 35, fornecedor: "Artesanato Fé" },
     ];

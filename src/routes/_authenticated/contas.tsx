@@ -29,7 +29,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/_authenticated/contas")({
-  head: () => ({ meta: [{ title: "Contas — Cantinho Mariano" }] }),
+  head: () => ({ meta: [{ title: "Contas — Loja FDC" }] }),
   component: ContasPage,
 });
 

@@ -10,7 +10,7 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/auth")({
   ssr: false,
-  head: () => ({ meta: [{ title: "Entrar — Cantinho Mariano" }] }),
+  head: () => ({ meta: [{ title: "Entrar — Loja FDC" }] }),
   component: AuthPage,
 });
 
@@ -43,7 +43,7 @@ function AuthPage() {
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 via-accent/15 to-secondary/20 blur-2xl" />
             <img src="/logo-manancial.png" alt="Manancial" className="relative h-24 w-24 object-contain" />
           </div>
-          <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Cantinho Mariano</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Loja FDC</p>
           <h1 className="mt-1 text-2xl font-bold">Entrar</h1>
         </div>
 

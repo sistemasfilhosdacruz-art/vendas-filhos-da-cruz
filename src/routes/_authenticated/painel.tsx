@@ -9,7 +9,7 @@ import { ArrowRight, BadgeDollarSign, CircleDollarSign, FileText, PackageSearch,
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/_authenticated/painel")({
-  head: () => ({ meta: [{ title: "Painel — Cantinho Mariano" }] }),
+  head: () => ({ meta: [{ title: "Painel — Loja FDC" }] }),
   component: Dashboard,
 });
 

@@ -21,7 +21,7 @@ import {
 } from "@/lib/admin.functions";
 
 export const Route = createFileRoute("/_authenticated/")({
-  head: () => ({ meta: [{ title: "Cantinho Mariano — Escolha o retiro" }] }),
+  head: () => ({ meta: [{ title: "Loja FDC — Escolha o retiro" }] }),
   component: Home,
 });
 
@@ -91,7 +91,7 @@ function Home() {
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 via-accent/15 to-secondary/20 blur-2xl" />
             <img src={logoAsset.url} alt="Manancial" className="relative h-32 w-32 object-contain drop-shadow-[0_8px_24px_rgba(46,90,106,0.25)]" />
           </div>
-          <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Cantinho Mariano</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Loja FDC</p>
           <h1 className="mt-2 text-3xl font-bold sm:text-4xl">Escolha o retiro</h1>
           <p className="mt-2 text-sm text-muted-foreground">
             Selecione em qual retiro você vai atender hoje.

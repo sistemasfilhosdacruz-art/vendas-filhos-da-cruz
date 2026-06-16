@@ -13,7 +13,7 @@ import { formatPhoneBR, isValidPhoneBR } from "@/lib/phone";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/_authenticated/cadastros")({
-  head: () => ({ meta: [{ title: "Cadastros — Cantinho Mariano" }] }),
+  head: () => ({ meta: [{ title: "Cadastros — Loja FDC" }] }),
   component: CadastrosPage,
 });
 

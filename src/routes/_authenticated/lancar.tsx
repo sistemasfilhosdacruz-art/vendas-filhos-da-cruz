@@ -11,7 +11,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/_authenticated/lancar")({
-  head: () => ({ meta: [{ title: "Lançar venda — Cantinho Mariano" }] }),
+  head: () => ({ meta: [{ title: "Lançar venda — Loja FDC" }] }),
   component: LancarPage,
 });
 
