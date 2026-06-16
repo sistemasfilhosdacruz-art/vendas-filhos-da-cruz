@@ -86,9 +86,9 @@ function Home() {
         </div>
 
         <div className="text-center mt-4">
-          <div className="relative mx-auto mb-5 grid h-32 w-32 place-items-center">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 via-accent/15 to-secondary/20 blur-2xl" />
-            <img src="/logo-fdc.png" alt="Loja FDC" className="relative h-32 w-32 object-contain drop-shadow-[0_8px_24px_rgba(46,90,106,0.25)]" />
+          <div className="relative mx-auto mb-8 flex w-full items-center justify-center px-2">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 blur-2xl opacity-50" />
+            <img src="/logo-fdc.png" alt="Loja FDC" className="relative w-full h-auto object-contain drop-shadow-md" />
           </div>
           <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Loja FDC</p>
           <h1 className="mt-2 text-3xl font-bold sm:text-4xl">Escolha o retiro</h1>
