@@ -43,7 +43,7 @@ function AuthPage() {
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 blur-2xl opacity-50" />
             <img src="/logo-fdc.png" alt="Loja FDC" className="relative w-full h-auto object-contain drop-shadow-md" />
           </div>
-          <h1 className="mt-2 mb-4 text-2xl font-bold">Entrar na Loja</h1>
+          <h1 className="mt-2 mb-4 text-2xl font-bold">Entrar na Loja FDC</h1>
         </div>
 
         <form onSubmit={entrar} className="mt-5 space-y-3">
