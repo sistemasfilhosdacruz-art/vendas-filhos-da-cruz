@@ -91,7 +91,7 @@ CREATE POLICY "membros leitura propria ou admin" ON public.retiro_membros FOR SE
 CREATE POLICY "membros admin write" ON public.retiro_membros FOR ALL TO authenticated
   USING (public.has_role(auth.uid(),'admin')) WITH CHECK (public.has_role(auth.uid(),'admin'));
 
--- 12) Seed do admin (usuario: admin, senha: IVFmanancial123)
+-- 12) Seed do admin (usuario: admin, senha: IVFLoja FDC123)
 DO $$
 DECLARE
   admin_id UUID;
@@ -110,7 +110,7 @@ BEGIN
       'authenticated',
       'authenticated',
       'admin@cantinho.local',
-      crypt('IVFmanancial123', gen_salt('bf')),
+      crypt('IVFLoja FDC123', gen_salt('bf')),
       now(), now(), now(),
       '{"provider":"email","providers":["email"]}'::jsonb,
       '{"username":"admin","full_name":"Administrador"}'::jsonb,

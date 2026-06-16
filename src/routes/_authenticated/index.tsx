@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import logoAsset from "@/assets/Logo com nome 1600x400px .png.asset.json";
+import logoAsset from "@/assets/logo-fdc.png.asset.json";
 import { useStore } from "@/lib/store";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -144,7 +144,7 @@ function Home() {
         <DialogContent>
           <DialogHeader><DialogTitle>Novo retiro</DialogTitle></DialogHeader>
           <Input
-            autoFocus placeholder="Ex: Manancial 2026"
+            autoFocus placeholder="Ex: Loja FDC 2026"
             value={novoNome} onChange={(e) => setNovoNome(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && criarRetiro()}
             className="h-11"
