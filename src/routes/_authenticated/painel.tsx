@@ -58,15 +58,22 @@ function Dashboard() {
     return { totalBruto, totalPago, totalPendente, devedores, totalNotas, notasPendentes, saldo };
   }, [vendas, notas]);
 
+  const formasPagamento = useMemo(() => {
+    const pagos = vendas.filter((v) => v.status === "pago");
+    const pix = pagos.filter((v) => v.forma_pagamento === "Pix").reduce((s, v) => s + (Number(v.valor_total || v.valorTotal) || 0), 0);
+    const credito = pagos.filter((v) => v.forma_pagamento === "Cartão de Crédito").reduce((s, v) => s + (Number(v.valor_total || v.valorTotal) || 0), 0);
+    const debito = pagos.filter((v) => v.forma_pagamento === "Cartão de Débito").reduce((s, v) => s + (Number(v.valor_total || v.valorTotal) || 0), 0);
+    const dinheiro = pagos.filter((v) => v.forma_pagamento === "Dinheiro").reduce((s, v) => s + (Number(v.valor_total || v.valorTotal) || 0), 0);
+
+    return { pix, credito, debito, dinheiro };
+  }, [vendas]);
+
   const porFornecedor = useMemo(() => {
     const map = new Map<string, { qtd: number; total: number }>();
     
     for (const v of vendas) {
-      // Pega a ID do produto que foi vendido
       const produtoId = v.produto_id || v.produtoId;
-      // Procura esse produto na nossa lista de produtos do banco
       const produtoNoBanco = produtos.find((p) => p.id === produtoId);
-      // Pega o nome do fornecedor dele (ou avisa se foi deletado)
       const nomeFornecedor = produtoNoBanco?.fornecedor || "Desconhecido";
 
       const cur = map.get(nomeFornecedor) ?? { qtd: 0, total: 0 };
@@ -100,8 +107,38 @@ function Dashboard() {
         <StatCard label="Em aberto" value={formatBRL(stats.totalPendente)} icon={CircleDollarSign} tone="accent" />
         <StatCard label="Notas a pagar" value={formatBRL(stats.notasPendentes)} icon={FileText} tone="accent" />
         <StatCard label="Devedores" value={String(stats.devedores)} icon={Users} tone="secondary" />
-        <StatCard label="Saldo do retiro" value={formatBRL(stats.saldo)} icon={Scale} tone={stats.saldo >= 0 ? "success" : "danger"} />
+        <StatCard 
+          label={<span className="text-[10px] font-semibold whitespace-nowrap">SALDO DO RETIRO</span> as unknown as string} 
+          value={formatBRL(stats.saldo)} 
+          icon={Scale} 
+          tone={stats.saldo >= 0 ? "success" : "danger"} 
+        />
       </div>
+
+      <Card className="mt-6 p-5">
+        <div className="mb-4 flex items-center justify-between">
+          <h3 className="text-lg font-semibold">Resumo de Caixa</h3>
+          <span className="text-xs text-muted-foreground">Faturamento por forma de pagamento</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="rounded-xl border border-border bg-card p-4">
+            <p className="text-xs uppercase tracking-wider text-muted-foreground">PIX</p>
+            <p className="mt-1 text-xl font-bold text-primary">{formatBRL(formasPagamento.pix)}</p>
+          </div>
+          <div className="rounded-xl border border-border bg-card p-4">
+            <p className="text-xs uppercase tracking-wider text-muted-foreground">CARTÃO DE CRÉDITO</p>
+            <p className="mt-1 text-xl font-bold text-primary">{formatBRL(formasPagamento.credito)}</p>
+          </div>
+          <div className="rounded-xl border border-border bg-card p-4">
+            <p className="text-xs uppercase tracking-wider text-muted-foreground">CARTÃO DE DÉBITO</p>
+            <p className="mt-1 text-xl font-bold text-primary">{formatBRL(formasPagamento.debito)}</p>
+          </div>
+          <div className="rounded-xl border border-border bg-card p-4">
+            <p className="text-xs uppercase tracking-wider text-muted-foreground">DINHEIRO (GAVETA)</p>
+            <p className="mt-1 text-xl font-bold text-primary">{formatBRL(formasPagamento.dinheiro)}</p>
+          </div>
+        </div>
+      </Card>
 
       <div className="mt-6 grid gap-4 lg:grid-cols-3">
         <Card className="lg:col-span-2 p-5">
@@ -171,7 +208,7 @@ function StatCard({
   icon: Icon,
   tone,
 }: {
-  label: string;
+  label: string | React.ReactNode;
   value: string;
   icon: React.ComponentType<{ className?: string }>;
   tone: "primary" | "secondary" | "accent" | "success" | "danger";
@@ -188,7 +225,7 @@ function StatCard({
       <div className={`mb-3 grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br ${toneCls}`}>
         <Icon className="h-4.5 w-4.5" />
       </div>
-      <p className="text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
+      <div className="text-xs uppercase tracking-wider text-muted-foreground">{label}</div>
       <p className="mt-1 text-xl font-bold tabular-nums">{value}</p>
     </Card>
   );
