@@ -1,5 +1,5 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, PlusCircle, Receipt, Users, Settings, LogOut, KeyRound, FileText } from "lucide-react";
+import { LayoutDashboard, PlusCircle, Receipt, Users, Settings, LogOut, KeyRound, FileText, Package } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { Toaster } from "@/components/ui/sonner";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
     { to: "/lancar", label: "Lançar", icon: PlusCircle },
     { to: "/contas", label: "Contas", icon: Receipt },
     { to: "/notas", label: "Notas", icon: FileText },
+    { to: "/estoque", label: "Estoque", icon: Package },
     { to: "/cadastros", label: "Cadastros", icon: Users },
     { to: "/configuracoes" as const, label: "Ajustes", icon: Settings },
   ];
@@ -72,7 +73,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
       <main className="flex-1 mx-auto w-full max-w-5xl px-4 py-5 pb-28 md:pb-10">{children}</main>
 
       <nav className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-border bg-card/95 backdrop-blur safe-bottom">
-        <div className={`mx-auto max-w-5xl grid ${nav.length === 6 ? "grid-cols-6" : nav.length === 5 ? "grid-cols-5" : "grid-cols-4"}`}>
+        <div className={`mx-auto max-w-5xl grid ${nav.length === 7 ? "grid-cols-7" : nav.length === 6 ? "grid-cols-6" : "grid-cols-5"}`}>
           {nav.map((n) => {
             const active = pathname.startsWith(n.to);
             const Icon = n.icon;
